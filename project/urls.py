@@ -3,7 +3,8 @@ from django.contrib import admin
 from django.urls import path
 from app_datetime.views import datetime_view
 from app_weather.views import my_view
-
+from store.views import products_view
+from store.views import shop_view
 from django.http import HttpResponse
 
 def random_view(request):
@@ -15,4 +16,7 @@ urlpatterns = [
     path('random/',random_view),
     path('datetime/', datetime_view),
     path('weather/', my_view),
+    path('store/',products_view),
+    path('', shop_view),
+
 ]
