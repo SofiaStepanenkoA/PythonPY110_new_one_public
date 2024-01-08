@@ -6,6 +6,7 @@ from app_weather.views import my_view
 from store.views import products_view
 from store.views import shop_view
 from django.http import HttpResponse
+from wishlist.views import wishlist_view
 
 def random_view(request):
     if request.method == "GET":
@@ -17,5 +18,7 @@ urlpatterns = [
     path('datetime/', datetime_view),
     path('', include('app_weather.urls')),
     path('', include('store.urls')),
-    path('login/', include('app_login.urls'))
+    path('login/', include('app_login.urls')),
+    path('wishlist/', include('wishlist.urls')),
+
 ]

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'app_datetime',
     'store',
     'app_login',
+    'wishlist',
 ]
 
 MIDDLEWARE = [
