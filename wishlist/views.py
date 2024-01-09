@@ -2,7 +2,7 @@ from django.shortcuts import render
 from logic.services import view_in_wishlist
 from django.contrib.auth import get_user
 from store.models import DATABASE
-from logic.services import add_to_wishlist,remove_from_wishlist
+from logic.services import add_to_wishlist,remove_from_wishlist, add_user_to_wishlist
 from django.http import JsonResponse
 from django.http import HttpResponse,HttpResponseNotFound
 from django.shortcuts import redirect
@@ -17,9 +17,8 @@ def wishlist_view(request):
             return JsonResponse(data, json_dumps_params={'ensure_ascii': False,
                                                      'indent': 4})
         products = []
-        for product_id, quantity in data['products'].items():
+        for product_id in data['products']:
             product = DATABASE.get(product_id)
-            product['quantity'] = quantity
             products.append(product)
         # TODO сформировать список словарей продуктов с их характеристиками
 
@@ -66,12 +65,12 @@ def wishlist_json(request):
                             status=404,
                             json_dumps_params={
                                 'ensure_ascii': False})
-
-@login_required(login_url='login:login_view')
-def remove_from_wishlist(request, id_product):
+def wishlist_remove_view(request, id_product):
     if request.method == "GET":
         result = remove_from_wishlist(request, id_product)  # TODO Вызвать функцию удаления из корзины
         if result:
             return redirect('wishlist:wishlist_view')  # TODO Вернуть перенаправление на корзину
 
-        return HttpResponseNotFound("Неудачное удаление из избранное")
+        return HttpResponseNotFound("Неудачное удаление из избранного")
+
+

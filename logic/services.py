@@ -97,12 +97,6 @@ def remove_from_cart(request, id_product: str) -> bool:
     with open ('cart.json', 'w', encoding='utf-8') as f:
         json.dump(cart_users, f)
     return True
-    # TODO Проверьте, а существует ли такой товар в корзине, если нет, то возвращаем False.
-
-    # TODO Если существует товар, то удаляем ключ 'id_product' у cart['products'].
-
-    # TODO Не забываем записать обновленные данные cart в 'cart.json'
-
     return True
 
 
@@ -154,7 +148,7 @@ def view_in_wishlist(request) -> dict:
             return json.load(f)
 
     user = get_user(request).username  # Получаем авторизированного пользователя
-    wishlist = {user: {'products': {}}}  # стало
+    wishlist = {user: {'products': []}}  # стало
     with open('wishlist.json', mode='x', encoding='utf-8') as f:   # Создаём файл и записываем туда пустую корзину
         json.dump(wishlist, f)
 
@@ -175,15 +169,12 @@ def add_to_wishlist(request, id_product: str) -> bool:
     # поэтому, чтобы загрузить данные из корзины, не нужно заново писать код.
 
     # id товара в вашей базе данных DATABASE, чтобы уберечь себя от добавления несуществующего товара.
-    if id_product in DATABASE and id_product in wishlist['products']:
-        wishlist['products'][id_product] += 1
-    elif id_product in DATABASE and id_product not in wishlist['products']:
-        wishlist['products'][id_product] = 1
+    if id_product in DATABASE and id_product not in wishlist['products']:
+        wishlist['products'].append(id_product)
     else:
         return False
     with open('wishlist.json', 'w', encoding='utf-8') as f:
-        json.dump(wishlist, f)  # стало
-    return True
+        json.dump(wishlist_users, f)  # стало
     return True
 
 
@@ -206,8 +197,9 @@ def remove_from_wishlist(request, id_product: str) -> bool:
     with open ('wishlist.json', 'w', encoding='utf-8') as f:
         json.dump(wishlist_users, f)
     return True
-
     return True
+
+
 
 
 def add_user_to_wishlist(request, username: str) -> None:
@@ -223,7 +215,7 @@ def add_user_to_wishlist(request, username: str) -> None:
 
     if not wishlist:  # Если пользователя до настоящего момента не было в корзине, то создаём его и записываем в базу
         with open('wishlist.json', mode='w', encoding='utf-8') as f:
-            wishlist_users[username] = {'products': {}}
+            wishlist_users[username] = {'products': []}
             json.dump(wishlist_users, f)
 
 
