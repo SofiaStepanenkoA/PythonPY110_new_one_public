@@ -1,0 +1,57 @@
+type: output
+files:
+- name: __init__.py
+  visible: false
+  learner_created: false
+- name: tests/output.txt
+  visible: false
+  text: |
+    Книга "test_name_1"
+    Книга "test_name_2"
+    [Book(id_=1, name='test_name_1', pages=200), Book(id_=2, name='test_name_2', pages=400)]
+  learner_created: false
+- name: main.py
+  visible: true
+  placeholders:
+  - offset: 188
+    length: 26
+    placeholder_text: '# TODO написать класс Book'
+    initial_state:
+      length: 26
+      offset: 188
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      class Book:
+          ...
+  text: |
+    BOOKS_DATABASE = [
+        {
+            "id": 1,
+            "name": "test_name_1",
+            "pages": 200,
+        },
+        {
+            "id": 2,
+            "name": "test_name_2",
+            "pages": 400,
+        }
+    ]
+
+
+    # TODO написать класс Book
+
+
+    if __name__ == '__main__':
+        # инициализируем список книг
+        list_books = [
+            Book(id_=book_dict["id"], name=book_dict["name"], pages=book_dict["pages"]) for book_dict in BOOKS_DATABASE
+        ]
+        for book in list_books:
+            print(book)  # проверяем метод __str__
+
+        print(list_books)  # проверяем метод __repr__
+  learner_created: false
+status: Unchecked
+record: -1

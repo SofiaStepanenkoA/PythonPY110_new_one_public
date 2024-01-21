@@ -1,0 +1,4 @@
+content:
+- task1_Glass__init__
+- task2_Glass_attrs
+- task3_Glass_method_outside_init
