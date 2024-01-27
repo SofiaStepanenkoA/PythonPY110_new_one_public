@@ -21,7 +21,7 @@ files:
       offset: 99
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @classmethod
           def area(cls, *args):
@@ -42,7 +42,7 @@ files:
       offset: 435
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @staticmethod
           def area_by_angle(a, b, angle):
@@ -55,7 +55,7 @@ files:
       offset: 627
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @staticmethod
           def area_by_height(a, h):
@@ -96,6 +96,6 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
-status: Unchecked
+status: Solved
 record: -1
 post_submission_on_open: true

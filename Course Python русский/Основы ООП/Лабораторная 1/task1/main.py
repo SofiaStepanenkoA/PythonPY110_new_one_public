@@ -1,4 +1,4 @@
-import doctest
+
 class Passenger:
     def __int__(self, name:str, age:int):
         """
@@ -8,7 +8,8 @@ class Passenger:
                :age: Возраст пассажира
 
                Примеры:
-               >>> Pass1 = Passenger('Джон', 50)  # инициализация экземпляра класса
+               >>> Pass1 = Passenger(1, 50)  # инициализация экземпляра класса
+               TypeError: Имя пассажира должно иметь строковый тип
                """
         if not isinstance(name, str):
             raise TypeError("Имя пассажира должно иметь строковый тип")
@@ -28,8 +29,9 @@ class Passenger:
                 Примеры:
                 >>> Pass1 = Passenger('Джон', 50)
                 >>> Pass1.flight_num()
+                50
                 """
-        ...
+        return 50
     def customer_discount(self) -> int:
         """
                 Функция которая возвращает процент скидки пассажира
@@ -39,8 +41,9 @@ class Passenger:
                 Примеры:
                 >>> Pass1 = Passenger('Джон', 50)
                 >>> Pass1.customer_discount()
+                50
                 """
-        ...
+        return 50
 class Plane:
     def __int__(self, bort_num:int, length:float, width:float):
         """
@@ -51,7 +54,8 @@ class Plane:
                        :width: Ширина судна
 
                        Примеры:
-                       >>> Plane1 = Plane(123, 100.2, 56.7)  # инициализация экземпляра класса
+                       >>> Plane1 = Plane(123.1, 100.2, 56.7)  # инициализация экземпляра класса
+                       TypeError: Номер борта должен быть целым числом
                        """
         if not isinstance(bort_num, int):
             raise TypeError("Номер борта должен быть целым числом")
@@ -79,8 +83,9 @@ class Plane:
                     Примеры:
                     >>> Plane1 = Plane(123, 100.2, 56.7)
                     >>> Plane1.calcuilate_weight()
+                    50.0
                     """
-        ...
+        return 50.0
     def get_model(self) -> str:
         """
                     Функция которая возвращает модель судна
@@ -90,8 +95,9 @@ class Plane:
                     Примеры:
                     >>> Plane1 = Plane(123, 100.2, 56.7)
                     >>> Plane1.get_model()
+                    '50'
                     """
-        ...
+        return '50'
     def get_time_flight(self) -> int:
         """
                     Функция которая возвращает время вылета
@@ -101,8 +107,9 @@ class Plane:
                     Примеры:
                     >>> Plane1 = Plane(123, 100.2, 56.7)
                     >>> Plane1.get_time_flight()
+                    50
                     """
-        ...
+        return 50
 
 class Crew:
     def __int__(self, captain_name:str, crew_number:int, average_age:float):
@@ -114,7 +121,8 @@ class Crew:
                         :average_age: Средний возраст
 
                         Примеры:
-                        >>> Crew1 = Crew("Ivan", 8, 28)  # инициализация экземпляра класса
+                        >>> Crew1 = Crew(1, 8, 28)  # инициализация экземпляра класса
+                        TypeError: Имя командира должно иметь строковый тип
                         """
         if not isinstance(captain_name, str):
             raise TypeError("Имя командира должно иметь строковый тип")
@@ -139,8 +147,9 @@ class Crew:
                     Примеры:
                     >>> Crew1 = Crew("Ivan", 8, 28)
                     >>> Crew1.get_experience()
+                    10.0
                     """
-        ...
+        return 10.0
     def get_rate(self) -> float:
         """
                     Функция, которая возвращает оценку экипажа пассажирами
@@ -150,11 +159,13 @@ class Crew:
                     Примеры:
                     >>> Crew1 = Crew("Ivan", 8, 28)
                     >>> Crew1.get_rate()
+                    10.0
                     """
-        ...
+        return 10.0
 
 
 # TODO Написать 3 класса с документацией и аннотацией типов
 
 if __name__ == "__main__":
+    import doctest
     doctest.testmod()  # тестирование примеров, которые находятся в документации
