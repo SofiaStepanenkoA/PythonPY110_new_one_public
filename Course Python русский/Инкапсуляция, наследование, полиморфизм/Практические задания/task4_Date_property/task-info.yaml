@@ -13,7 +13,7 @@ files:
       offset: 424
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @staticmethod
           def is_leap_year(year: int) -> bool:
@@ -25,7 +25,7 @@ files:
       offset: 573
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       leap_condition = ((year % 4) == 0 and (year % 100) != 0) or ((year % 400) == 0)
               return leap_condition
@@ -37,7 +37,7 @@ files:
       offset: 777
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       year_months_index = 0 if not self.is_leap_year(year) else 1
               year_months = self.DAY_OF_MONTH[year_months_index]
@@ -52,7 +52,7 @@ files:
       offset: 963
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       if day > self.get_max_day(month, year):
                   raise ValueError
@@ -64,7 +64,7 @@ files:
       offset: 1057
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @property
           def day(self) -> int:
@@ -85,7 +85,7 @@ files:
       offset: 1102
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @property
           def month(self) -> int:
@@ -106,7 +106,7 @@ files:
       offset: 1150
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       @property
           def year(self) -> int:
@@ -156,6 +156,6 @@ files:
 - name: __init__.py
   visible: false
   learner_created: false
-status: Unchecked
+status: Solved
 record: -1
 post_submission_on_open: true

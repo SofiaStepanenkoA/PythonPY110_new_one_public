@@ -38,6 +38,8 @@ files:
         def __str__(self):
             return f"Книга {self.name}. Автор {self.author}"
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  time: "Sun, 28 Jan 2024 15:11:48 UTC"
 record: -1
 post_submission_on_open: true
